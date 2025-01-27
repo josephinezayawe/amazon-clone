@@ -1,5 +1,5 @@
 import {cart } from '../data/cart.js';
-
+import {products} from '../data/products.js';
 
 let productsHTML ='';
  products.forEach((product) => {
@@ -50,7 +50,7 @@ let productsHTML ='';
           </div>
 
           <button class="add-to-cart-button button-primary 
-          add-to-cart-react"data-product-name="${product.name}">
+          add-to-cart-react"data-product-id="${product.id}">
             Add to Cart
           </button>
         </div>
@@ -60,15 +60,15 @@ let productsHTML ='';
 
  document.querySelectorAll('.add-to-cart-react')
   .forEach((button) => {
-    let productName = button.dataset.productName;
+    let productId = button.dataset.productId;
     
     button.addEventListener('click', ()=>{
-      let matchingItem = cart.find((item)=>item.productName === productName);
+      let matchingItem = cart.find((item)=>item.productId === productId);
       if(matchingItem) {
         matchingItem.quantity +=1
       } else{
         cart.push({
-          productName:productName,
+          productId:productId,
           quantity:1 
         });
       }
