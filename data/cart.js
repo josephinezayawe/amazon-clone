@@ -20,12 +20,12 @@ export function addToCart (productId) {
   }; 
 
   export function removeFromCart(productId){
-    const newcart = [];
-    cart.forEach((cartItem)=>{
-      if(cartItem.productId !== productId){
-        newcart.push(cartItem)
-      }
-    });
+      const newcart=[];
+    const container = document.querySelector(`.js-cart-item-container-${productId}`);
+    if (container) {
+      container.remove();
+    } 
+      
     cart = newcart;
   }
   
