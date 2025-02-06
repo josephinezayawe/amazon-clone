@@ -4,6 +4,7 @@ import { formatCurrency } from "./utils/money.js";
 import { hello } from "https://unpkg.com/supersimpledev@1.0.1/hello.esm.js";
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
 import { deliveryOptions } from "../data/deliveryOptions.js";
+import "../data/cart-oop.js";
 
 hello();
 dayjs();

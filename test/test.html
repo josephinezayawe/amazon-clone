@@ -9,3 +9,36 @@
     <script type="module" src="moneyTest.js"></script>
   </body>
 </html>
+<script>
+  const dictionary = {};
+
+  function addWord(sign, word) {
+    dictionary[sign] = word;
+  }
+
+  function translate(sign) {
+    return dictionary[sign] || "Not found";
+  }
+
+  addWord("✌️", "Peace");
+  console.log(translate("✌️")); // "Peace"
+</script>
+<script>
+  class Character {
+    constructor(name, power) {
+      this.name = name;
+      this.power = power;
+    }
+
+    attack() {
+      console.log(`${this.name} attacks with ${this.power}!`);
+    }
+  }
+
+  // Creating objects from the class
+  const hero = new Character("Superman", "Laser Eyes");
+  const villain = new Character("Joker", "Tricks");
+
+  hero.attack(); // Superman attacks with Laser Eyes!
+  villain.attack(); // Joker attacks with Tricks!
+</script>
