@@ -4,13 +4,12 @@ import { formatCurrency } from "./utils/money.js";
 import { hello } from "https://unpkg.com/supersimpledev@1.0.1/hello.esm.js";
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
 import { deliveryOptions } from "../data/deliveryOptions.js";
-import "../data/cart-oop.js";
+import "../data/cart-class.js";
 
 hello();
 dayjs();
 const today = dayjs();
 const deliveryDate = today.add(7, "days");
-console.log(deliveryDate.format("dddd, MMMM, D"));
 
 let cartSummaryHTML = "";
 
@@ -33,7 +32,7 @@ cart.forEach((cartItem) => {
   });
 
   const today = dayjs();
-  const deliveryDate = today.add(deliveryOption.deliveryDays, "days");
+  //const deliveryDate = today.add(deliveryOption.deliveryDays, "days");
   const datetring = deliveryDate.format("dddd, MMMM, D");
 
   cartSummaryHTML += `
@@ -133,8 +132,6 @@ cart.forEach((item) => {
   cartQuantity = cartQuantity + item.quantity;
 });
 document.querySelector(".items-react").innerHTML = cartQuantity;
-
-console.log(cartQuantity);
 
 document.addEventListener("click", (remove) => {
   let over = remove.target.classList.contains("js-delete-link");
