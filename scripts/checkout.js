@@ -4,7 +4,7 @@ import { formatCurrency } from "./utils/money.js";
 import { hello } from "https://unpkg.com/supersimpledev@1.0.1/hello.esm.js";
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
 import { deliveryOptions } from "../data/deliveryOptions.js";
-import "../data/cart-class.js";
+//import "../data/cart-class.js";
 
 hello();
 dayjs();
@@ -52,7 +52,7 @@ cart.forEach((cartItem) => {
                   ${matchingProduct.name}
                 </div>
                 <div class="product-price">
-                $${formatCurrency(matchingProduct.priceCents)}
+                ${matchingProduct.getPrice()}
                 </div>
                 <div class="product-quantity">
                   <span>
