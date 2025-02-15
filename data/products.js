@@ -41,7 +41,46 @@ class Clothing extends Product {
     `;
   }
 }
+/*
+//this uses a language built in classes that is about date and time in general
+const date = new Date();
+console.log(date);
+console.log(date.toLocaleTimeString());
+*/
+/*
+console.log(this);
+const object2 = {
+  a: 2,
+  b: this.a,
+};
+*/
+/*
+const person = {
+  name: "Joseph",
+  greet() {
+    console.log(`Hello, my name is ${this.name}`);
+  }
+};
 
+const anotherPerson = { name: "Alice" };
+
+// Using call() to set `this` to `anotherPerson`
+person.greet.call(anotherPerson);  // Output: Hello, my name is Alice
+*/
+
+/*function logThis() {
+  console.log(this);
+}
+logThis();
+logThis.call("hello");
+
+const object3 = {
+  method: () => {
+    console.log(this);
+  },
+};
+object3.method();
+*/
 export const products = [
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
