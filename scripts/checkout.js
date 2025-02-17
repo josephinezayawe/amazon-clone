@@ -6,6 +6,7 @@ import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
 import { deliveryOptions } from "../data/deliveryOptions.js";
 //import "../data/cart-class.js";
 //import "../inheritance.js";
+import "../data/backend-practice.js";
 
 hello();
 dayjs();

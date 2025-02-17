@@ -23,6 +23,10 @@ class Product {
   extraInfoHTML() {
     return "";
   }
+
+  warrantyHTML() {
+    return "";
+  }
 }
 
 class Clothing extends Product {
@@ -41,9 +45,28 @@ class Clothing extends Product {
     `;
   }
 }
+
+class Appliance extends Product {
+  warrantyLink;
+  instruction;
+  constructor(productDetails) {
+    super(productDetails);
+
+    this.warrantyLink = productDetails.warrantyLink;
+  }
+
+  warrantyHTML() {
+    return `
+    <a href="${this.warrantyLink}" target="_blank">
+    warranted
+    </a>
+  `;
+  }
+}
+
 /*
 //this uses a language built in classes that is about date and time in general
-const date = new Date();
+const  = new Date();
 console.log(date);
 console.log(date.toLocaleTimeString());
 */
@@ -127,6 +150,8 @@ export const products = [
     },
     priceCents: 1899,
     keywords: ["toaster", "kitchen", "appliances"],
+    warrantyLink: "images/appliance-warranty.png",
+    type: "appliance",
   },
   {
     id: "3ebe75dc-64d2-4137-8860-1f5a963e534b",
@@ -553,8 +578,16 @@ export const products = [
     keywords: ["sweaters", "hoodies", "apparel", "mens"],
   },
 ].map((productDetails) => {
+  if (productDetails.type === "appliance") {
+    return new Appliance(productDetails);
+  }
   if (productDetails.type === "clothing") {
     return new Clothing(productDetails);
   }
   return new Product(productDetails);
 });
+
+/* ✅ Encapsulation protects data using private variables. ✅ Abstraction
+simplifies code by hiding unnecessary details. ✅ Inheritance allows one class
+to reuse another class’s code. ✅ Polymorphism allows different objects to use
+the same method differently. */
