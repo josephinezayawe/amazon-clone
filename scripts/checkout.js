@@ -1,5 +1,5 @@
 import { cart, removeFromCart, updateDeliveryOption } from "../data/cart.js";
-import { products } from "../data/products.js";
+import { products, loadProductsFetch } from "../data/products.js";
 import { formatCurrency } from "./utils/money.js";
 import { hello } from "https://unpkg.com/supersimpledev@1.0.1/hello.esm.js";
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
@@ -12,11 +12,7 @@ import { loadCart } from "../data/cart.js";
 //import "../data/backend-practice.js";
 
 Promise.all([
-  new Promise((resolve) => {
-    loadProducts(() => {
-      resolve("value1");
-    });
-  }),
+  loadProductsFetch(),
   new Promise((resolve) => {
     loadCart(() => {
       resolve();
