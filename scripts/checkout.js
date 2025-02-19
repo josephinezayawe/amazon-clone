@@ -7,7 +7,7 @@ import { deliveryOptions } from "../data/deliveryOptions.js";
 import { loadProducts } from "../data/products.js";
 import { SaveToStorage } from "../data/cart.js";
 import { loadCart } from "../data/cart.js";
-import { addOrder } from "../data/orders.js";
+//import { addOrder } from "../data/orders.js";
 //import "../data/cart-class.js";
 //import "../inheritance.js";
 //import "../data/backend-practice.js";

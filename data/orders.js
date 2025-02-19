@@ -1,4 +1,4 @@
-export const orders = JSON.parse(localStorage.getItem("orders")) || [];
+/*xport const orders = JSON.parse(localStorage.getItem("orders")) || [];
 
 export function addOrder(order) {
   orders.unshift(order);
@@ -29,3 +29,4 @@ document
     }
     window.location.href = "orders.html";
   });
+*/
