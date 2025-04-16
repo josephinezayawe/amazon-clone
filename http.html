@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Language Translator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .camera-feed {
+      margin-bottom: 20px;
+    }
+
+    video {
+      border: 2px solid #ddd;
+      border-radius: 8px;
+    }
+
+    .translation h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .translation p {
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .controls {
+      margin-top: 20px;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+
+    #speechOutput {
+      margin-top: 20px;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <!-- Camera Feed Area -->
+      <div class="camera-feed">
+        <video id="video" width="640" height="480" autoplay></video>
+      </div>
+
+      <!-- Translation Display -->
+      <div class="translation">
+        <h2>Translation:</h2>
+        <p id="translatedText">Waiting for input...</p>
+      </div>
+
+      <!-- Buttons for Features -->
+      <div class="controls">
+        <button id="startRecognition" onclick="startRecognition()">
+          Start Gesture Recognition
+        </button>
+        <button id="toggleSpeech" onclick="toggleSpeech()">
+          Enable Speech-to-Text
+        </button>
+      </div>
+
+      <!-- Audio Output for Speech -->
+      <div id="speechOutput">
+        <button onclick="speakText()">Play Translation</button>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+      let isSpeechEnabled = false;
+      let recognitionStarted = false;
+
+      async function startRecognition() {
+        if (recognitionStarted) {
+          console.log("Recognition already started.");
+          return;
+        }
+
+        recognitionStarted = true;
+        console.log("Starting gesture recognition...");
+
+        // Simulate camera access
+        const videoElement = document.getElementById("video");
+        const stream = await navigator.mediaDevices.getUserMedia({
+          video: true,
+        });
+        videoElement.srcObject = stream;
+
+        // Simulate gesture detection after a few seconds (you can replace this with actual gesture detection logic)
+        setTimeout(() => {
+          document.getElementById("translatedText").textContent = "Hello";
+          console.log("Detected gesture: Hello");
+        }, 5000); // Simulated gesture after 5 seconds
+      }
+
+      function toggleSpeech() {
+        isSpeechEnabled = !isSpeechEnabled;
+        const status = isSpeechEnabled ? "enabled" : "disabled";
+        console.log(`Speech-to-Text ${status}`);
+      }
+
+      function speakText() {
+        const translatedText =
+          document.getElementById("translatedText").textContent;
+
+        if (translatedText === "Waiting for input...") {
+          console.log("No translation to speak.");
+          return;
+        }
+
+        const speech = new SpeechSynthesisUtterance(translatedText);
+        window.speechSynthesis.speak(speech);
+      }
+    </script>
+  </body>
+</html>
